@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Sorry 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: #71334f;
+    background: linear-gradient(135deg, #ffe0ec, #fff7fa, #ffc6d9);
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+}
+
+.card {
+    background: rgba(255,255,255,0.9);
+    padding: 30px 22px;
+    margin: 22px 0;
+    border-radius: 25px;
+    box-shadow: 0 8px 25px #d85c851c;
+    border: 1px solid #ffd0df;
+}
+
+h1 {
+    color: #e7477d;
+    font-size: clamp(40px, 8vw, 65px);
+    margin: 18px 0;
+}
+
+h2 {
+    color: #d94378;
+}
+
+p {
+    line-height: 1.9;
+    font-size: 17px;
+}
+
+.shayari {
+    font-size: 19px;
+    line-height: 2;
+    color: #b53668;
+}
+
+button {
+    background: #ff5f91;
+    color: white;
+    border: none;
+    padding: 14px 22px;
+    border-radius: 30px;
+    margin: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e7477d;
+    transform: scale(1.04);
+}
+
+.heart {
+    position: fixed;
+    bottom: -40px;
+    animation: floatUp 7s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    15% { opacity: 0.8; }
+    100% {
+        transform: translateY(-110vh) rotate(35deg);
+        opacity: 0;
+    }
+}
+
+#message, #finalMessage {
+    color: #d94378;
+    font-weight: bold;
+    margin-top: 18px;
+}
+
+footer {
+    padding: 20px;
+    color: #a65c78;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <p>💌 A little message from my heart</p>
+
+        <h1>I'm Sorry 💗</h1>
+
+        <p>
+            Hey love ❤️<br>
+            I know I may have hurt you, and I'm truly sorry.
+            You mean a lot to me, and I never want to ignore
+            your feelings.
+        </p>
+
+        <p>
+            I cannot change what happened, but I can take
+            responsibility, listen to you, and try to do better.
+        </p>
+
+        <button onclick="openApology()">
+            Open My Apology 💌
+        </button>
+
+        <button onclick="sendHearts()">
+            Send You Love 💕
+        </button>
+
+        <div id="message"></div>
+    </div>
+
+
+    <div class="card">
+        <h2>🌹 A Little Shayari For You</h2>
+
+        <div class="shayari">
+            Galti hui hai mujhse, ise maan raha hoon,<br>
+            Teri khamoshi ka dard pehchaan raha hoon.<br>
+            Maafi sirf lafzon se nahi, apne kaam se maangunga,<br>
+            Tujhe samajhne ki koshish har din badhaunga. 💗
+        </div>
+    </div>
+
+
+    <div class="card">
+        <h2>💌 From My Heart</h2>
+
+        <p>
+            I'm sorry for my mistakes and for the way they
+            made you feel. You deserve respect, honesty,
+            patience, and care.
+        </p>
+
+        <p>
+            I don't expect you to forget everything just
+            because I said sorry. I want to understand your
+            feelings and show through my actions that
+            this apology is genuine.
+        </p>
+
+        <p>
+            Take your time. I'll respect your feelings
+            and listen whenever you're ready. ❤️
+        </p>
+    </div>
+
+
+    <div class="card">
+        <h2>💖 My Promises</h2>
+
+        <p>👂 I promise to listen to you.</p>
+        <p>🤍 I promise to take responsibility for my mistakes.</p>
+        <p>🌷 I promise to respect your feelings.</p>
+        <p>🌱 I promise to learn and try to do better.</p>
+    </div>
+
+
+    <div class="card">
+        <h2>🥺 One Last Thing...</h2>
+
+        <p>
+            You are important to me, and I'm genuinely sorry.
+            I hope we can talk when you're comfortable.
+            No pressure, just an honest apology from my heart.
+        </p>
+
+        <button onclick="finalMessage()">
+            Read One Last Message 💗
+        </button>
+
+        <div id="finalMessage"></div>
+    </div>
+
+    <footer>
+        Made with love and sincerity 💕<br>
+        Always remember, you matter. 🌸
+    </footer>
+
+</div>
+
+
+<script>
+function openApology() {
+    document.getElementById("message").innerHTML =
+        "I'm truly sorry. I want to listen, understand, and do better. 💗";
+}
+
+function sendHearts() {
+    for (let i = 0; i < 20; i++) {
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.innerHTML = ["💗", "💕", "💖", "🌸"][
+            Math.floor(Math.random() * 4)
+        ];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+        heart.style.fontSize =
+            (20 + Math.random() * 25) + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 8000);
+    }
+}
+
+function finalMessage() {
+    document.getElementById("finalMessage").innerHTML =
+        "I'm sorry, and I care about you. 💗 " +
+        "Whenever you're ready, I'm here to listen. 🌷";
+}
+</script>
+
+</body>
+</html>
